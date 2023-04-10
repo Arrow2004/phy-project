@@ -1,0 +1,41 @@
+<style>
+    .answer {
+        list-style: none;
+        cursor: pointer;
+    }
+    label{
+        width: 100%;
+        text-align: left;
+    }
+    input:checked+label {
+        color: #fff;
+        background: #333;
+    }
+    .questions{
+        background: #fff;
+    }
+</style>
+<form action="/contest/check/{{contest._id}}/{{regUser._id}}" method="post">
+    <div class="container">
+        <h1>{{title}}</h1>
+        <div class="questions">
+            <ul style="list-style: numeric;">
+                {{#each contest.questions}}
+                <li class="question_list my-3"><b>{{question}}</b>
+                     <ul style="">
+                    {{#each answers}}
+                    <li class="answer">
+                        <input style="display: none;" type="radio" name="{{../question}}" id="{{../question}}-{{this}}"
+                            value="{{this}}">
+                        <label class="btn btn-light" for="{{../question}}-{{this}}">{{this}}</label>
+                    </li>
+                    {{/each}}
+                </ul>
+                </li>
+               
+                {{/each}}
+            </ul>
+        </div>
+        <button type="submit" class="btn btn-primary mx-auto">Jo'natish</button>
+    </div>
+</form>

@@ -1,0 +1,21 @@
+<div class="container fluid p-5 mt-5 mx-auto">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Ismi</th>
+      <th scope="col">Familyasi</th>
+      <th scope="col">Foydalanuvchi nomi</th>
+    </tr>
+  </thead>
+  <tbody>
+   {{#each users}}
+      <tr>
+      <td>{{firstName}}</td>
+      <td>{{lastName}}</td>
+      <td> <a class="btn" href="/profile/{{username}}">@{{username}}</a> </td>
+    </tr>
+   {{/each}}
+
+  </tbody>
+</table>
+</div>

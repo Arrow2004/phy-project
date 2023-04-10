@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>{{contest.title}}</h1>
+    <p>{{contest.description}}</p>
+    <h2>Sizning natijangiz: {{score}}/{{contest.questions.length}}</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Ismi</th>
+                <th scope="col">Familyasi</th>
+                <th scope="col">Foydalanuvchi nomi</th>
+                <th scope="col">Natijasi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each results}}
+            <tr>
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td><a class="btn" href="/profile/{{user.username}}">@{{user.username}}</a></td>
+                <td>{{score}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
