@@ -16,6 +16,7 @@ const getProfilePage = async (req,res)=>{
         const user = await User.findOne({username: req.params.username})
         .populate('articles',['_id','title'])
         .lean()
+        const itsme = user._id===req.session.user._id
         if(user){
             res.render('user/profile',{
                 title: user.firstName+' '+user.lastName,
