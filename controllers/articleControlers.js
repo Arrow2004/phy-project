@@ -1,5 +1,7 @@
 const Article = require("../models/articleModel");
 const User = require("../models/userModel");
+const uploadImage = require('../utils/cloudinary')
+const path = require('path')
 //gets
 const getAllArticles = async (req, res) => {
   try {
@@ -49,12 +51,13 @@ const getOneArticlePage = async (req, res) => {
 //Posts
 const addArticle = async (req, res) => {
   try {
-    const { title, body, preview, previewPicture } = req.body;
+    const uploadPic = await uploadImage(req.file.filename)
+    const { title, body, preview } = req.body;
     const newArticle = await Article.create({
       title,
       body,
       preview,
-      previewPicture: req.file.filename,
+      previewPicture: uploadPic,
       author: req.session.user._id,
     });
     await User.findByIdAndUpdate(

@@ -30,6 +30,7 @@ app.set('views',path.join(__dirname,'/views'))
 //
 hbsHelpers(Handlebars)
 //Statik papkani o'rnatish
+
 app.use(express.static(__dirname + '/tmp'));
 app.use('/tmp', express.static('tmp'));
 //Routelarni ulash
