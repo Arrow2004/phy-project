@@ -1,9 +1,9 @@
-const User =require('../models/userModel')
+const User = require('../models/userModel')
 const uploadImage = require('../utils/cloudinary')
 const getLoginPage =(req,res)=>{
     res.render('user/login',{
         title: 'Hisobga kirish',
-        regError: req.flash('loginError')
+        loginError: req.flash('loginError')
     })
 }
 const getRegisterPage =(req,res)=>{
@@ -26,7 +26,7 @@ const login = async (req,res)=>{
             }
         }else{
             req.flash('loginError',`Bunday foydalanuvchi topilmadi!!!`)
-                res.redirect('/auth/login')
+            res.redirect('/auth/login')
         }
         
     } catch (e) {
