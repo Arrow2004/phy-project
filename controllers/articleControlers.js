@@ -1,7 +1,7 @@
 const Article = require("../models/articleModel");
 const User = require("../models/userModel");
 const uploadImage = require('../utils/cloudinary')
-const path = require('path')
+const cloudinary = require('cloudinary')
 //gets
 const getAllArticles = async (req, res) => {
   try {
@@ -74,6 +74,9 @@ const removeArticle = async (req, res) => {
   try {
     const article = await Article.findById(req.params.id);
     if (req.params.id == article._id) {
+      let public_id = article.previewPicture.split('/').slice(-2);
+      public_id = public_id[0]+'/'+public_id[1].split('.')[0]
+      cloudinary.v2.uploader.destroy(public_id).then(result=>console.log(result));
       await Article.findByIdAndDelete(req.params.id);
       res.redirect("/article");
     }

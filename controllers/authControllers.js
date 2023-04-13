@@ -1,4 +1,5 @@
 const User =require('../models/userModel')
+const uploadImage = require('../utils/cloudinary')
 const getLoginPage =(req,res)=>{
     res.render('user/login',{
         title: 'Hisobga kirish'
@@ -26,10 +27,11 @@ const login = async (req,res)=>{
 const signup = async (req,res)=>{
     try {
         const userExist = await User.findOne({email: req.body.email})
+        const uploadPic = await uploadImage(req.file)
         if(!userExist && req.body.password==req.body.password2){
             await User.create({
                 email: req.body.email,
-                profilePic: req.file.filename,
+                profilePic: uploadPic,
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 phone: req.body.phone,

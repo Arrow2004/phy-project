@@ -1,5 +1,7 @@
 const { Contest, Questions } = require("../models/contestModel");
 const User = require("../models/userModel");
+const uploadImage = require('../utils/cloudinary')
+const cloudinary = require('cloudinary')
 const getAllContests = async (req, res) => {
   try {
     const contests = await Contest.find().populate("authors").lean();
@@ -14,7 +16,7 @@ const getAllContests = async (req, res) => {
 };
 const addContest = async (req, res) => {
   try {
-    console.log(req.file.filename);
+    const uploadPic = await uploadImage(req.file)
     const contest = await Contest.create({
       title: req.body.title,
       description: req.body.description,
