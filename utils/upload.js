@@ -2,20 +2,15 @@ const multer  = require('multer')
 const path = require('path')
 
 //Set storage
-const storage = multer.diskStorage({
-    destination: 'tmp',
-    filename: function(req,file,cb){
-        cb(null, file.fieldname+'-'+Date.now()+path.extname(file.originalname))
-    }
-})
+const storage = multer.memoryStorage()
 
 //Inital
 const upload = multer({
     storage,
-    limits: {fileSize: 10000000000},
-    fileFilter: function(req,file,cb){
-        checkFileType(file,cb)
-    }
+    // limits: {fileSize: 10000000000},
+    // fileFilter: function(req,file,cb){
+    //     checkFileType(file,cb)
+    // }
 })
 
 function checkFileType(file,cb){

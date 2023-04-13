@@ -51,7 +51,7 @@ const getOneArticlePage = async (req, res) => {
 //Posts
 const addArticle = async (req, res) => {
   try {
-    const uploadPic = await uploadImage(req.file.filename)
+    const uploadPic = await uploadImage(req.file)
     const { title, body, preview } = req.body;
     const newArticle = await Article.create({
       title,
