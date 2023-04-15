@@ -1,0 +1,94 @@
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            {{#if updateErr}}
+                <div class="alert alert-danger">{{updateErr}}</div>
+            {{/if}}
+            <div class="card p-4 mb-5">
+                <form action="/auth/update" enctype="multipart/form-data" method="post">
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Familya</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        placeholder="Polonchiyev" 
+                        id="lastName"
+                        name="lastName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">Ism</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        placeholder="Pismodonchi" 
+                        id="firstName"
+                        name="firstName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input 
+                        type="email" 
+                        class="form-control" 
+                        placeholder="example@mail.com" 
+                        id="email"
+                        name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        placeholder="simple_user" 
+                        id="username"
+                        name="username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone number</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        placeholder="998911234567" 
+                        id="phone"
+                        name="phone"
+                        value="+998">
+                    </div>
+                    <div class="mb-3">
+                        <label for="oldPassword" class="form-label">Eski parol</label>
+                        <input 
+                        type="password" 
+                        class="form-control" 
+                        id="oldPassword"
+                        name="oldPassword">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Yangi parol</label>
+                        <input 
+                        type="password" 
+                        class="form-control" 
+                        id="password"
+                        name="password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password2" class="form-label">Yangi parolni takrorlang</label>
+                        <input 
+                        type="password" 
+                        class="form-control" 
+                        id="password2"
+                        name="password2">
+                    </div>
+                    <div class="mb-3">
+                        <label for="profilePicture" class="form-label">Profil rasmi</label>
+                        <input 
+                        type="file"
+                        class="form-control" 
+                        id="profilePicture"
+                        name="profilePicture">
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Yangilash</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

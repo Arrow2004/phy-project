@@ -12,6 +12,13 @@ const getRegisterPage =(req,res)=>{
         regError: req.flash('regError')
     })
 }
+const getUpdatePage = (req,res)=>{
+    res.render('user/updateUser',{
+        title: 'Profilni tahrirlash',
+        updateErr: req.flash('updateErr'),
+        regUser: req.session.user
+    })
+}
 const login = async (req,res)=>{
     try {
         const userExist = await User.findOne({email: req.body.email})
@@ -66,10 +73,42 @@ const logout = (req,res)=>{
     })
     res.redirect('/')
 }
+const update = async (req,res)=>{
+    try {
+        const userExist = await User.findOne({email: req.session.user.email})
+        const uploadPic = await uploadImage(req.file)
+        if(req.body.oldPassword===userExist.password){
+            if(req.body.password==req.body.password2){
+                const updatedUser = await User.findByIdAndUpdate(req.session.user._id,{
+                    email: req.body.email,
+                    profilePic: uploadPic,
+                    firstName: req.body.firstName,
+                    lastName: req.body.lastName,
+                    phone: req.body.phone,
+                    password: req.body.password,
+                    username: req.body.username,
+                })
+                req.session.user = updatedUser;
+                res.redirect('/profile/'+req.body.username)
+            }else{
+                req.flash('updateErr','Parollaringiz mos tushmayapti');
+                res.redirect('/auth/update')
+            }
+        }else{
+            req.flash('updateErr','Eski parolingiz mos kelmadi');
+            res.redirect('/auth/update')
+        }
+    } catch (e) {
+        console.log(e)
+    }
+}
+
 module.exports = {
     getRegisterPage,
     getLoginPage,
+    getUpdatePage,
     login,
     signup,
-    logout
+    logout,
+    update
 }

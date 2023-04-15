@@ -6,7 +6,7 @@ const getAllContests = async (req, res) => {
   try {
     const contests = await Contest.find().populate("authors").lean();
     res.render("contests/home", {
-      title: "Contest va testlar",
+      title: "Testlar",
       regUser: req.session.user,
       contests,
     });
@@ -21,7 +21,7 @@ const addContest = async (req, res) => {
       title: req.body.title,
       description: req.body.description,
       authors: [req.session.user._id],
-      previewPicture: req.file.filename,
+      previewPicture: uploadPic,
     });
     res.redirect("/contest/add/" + contest._id);
   } catch (e) {
