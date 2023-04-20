@@ -1,7 +1,10 @@
 const {Router} = require('express')
 const router = Router()
 const {protected} = require('../midllewares/auth')
-const {getHomePage,getOnePage} = require('../controllers/animationControllers')
+const upload = require('../utils/upload')
+const {getHomePage,getOnePage,getAddPage,Add} = require('../controllers/animationControllers')
 router.get('/',getHomePage)
+router.get('/add',protected,getAddPage)
+router.post('/add',protected,upload.single('previewPicture'),Add)
 router.get('/:id',getOnePage)
 module.exports = router;

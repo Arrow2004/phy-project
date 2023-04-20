@@ -1,0 +1,52 @@
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+<div class="container fluid">
+    <form action="/animations/add" enctype="multipart/form-data" method="post">
+        <div class="mb-3">
+            <label for="animation-title">Animatsiya nomi</label>
+            <input 
+            type="text"
+            class="form-control" 
+            id="animation-title" 
+            name="title"  
+            placeholder="Animatsiya nomi">
+        </div>
+        <div class="mb-3">
+            <label for="animation-preview">Animatsiya qsiqa sharh</label>
+            <input 
+            type="text" 
+            class="form-control" 
+            id="animation-preview" 
+            name="preview"  
+            placeholder="Animatsiyaga qisqacha sharx">
+        </div>
+        <div class="mb-3">
+             <h2>Ta'rifni bu yerga yozing</h2>
+            <textarea class="form-control"  id="textEditor" name="body"></textarea>
+        </div>
+        <div class="mb-3">
+             <label for="formFile" class="form-label">Animatsiy ko'rinishi uhcun rasm</label>
+            <input 
+                class="form-control" 
+                type="file"
+                name="previewPicture" 
+                id="formFile">
+        </div>
+        <div class="mb-3">
+            <label for="animation-title">Animatsiya ga havola</label>
+            <input 
+            type="text" 
+            class="form-control" 
+            id="animation-title" 
+            name="ref"  
+            placeholder="Animatsiyaga havola">
+        </div>
+        <center><button class="btn btn-primary mx-auto w-50" type="submit">Jo'natish</button></center>
+    </form>
+</div>
+<script>
+        ClassicEditor
+            .create( document.querySelector( '#textEditor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>

@@ -12,7 +12,7 @@ const uploadImage = async (file)=>{
     return new Promise((res, rej) =>{
         const uploadPic = cloudinary.uploader.upload_stream(
             {
-                folder: "demo"
+                folder: "phy"
             },
             (error, result) => {
                     if (error) rej(error);

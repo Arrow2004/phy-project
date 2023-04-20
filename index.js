@@ -38,7 +38,7 @@ app.use('/article',require('./routes/articleRoutes'));
 app.use('/auth',require('./routes/authRoutes'));
 app.use('/profile',require('./routes/profileRoutes'));
 app.use('/contest',require('./routes/contestRoutes'));
-app.use('/virtual',require('./routes/animationRoutes'));
+app.use('/animations',require('./routes/animationRoutes'));
 app.use('/',require('./routes/home'))
 const PORT = process.env.PORT || 3000;
 app.listen(PORT,()=>console.log(`Server is running on port: ${PORT}`))

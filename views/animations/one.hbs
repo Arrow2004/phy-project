@@ -1,0 +1,25 @@
+<style>
+    iframe {
+        width: 100%;
+        height: 80vh;
+    }
+
+    #body img {
+        max-width: 80%;
+    }
+</style>
+<div class="container">
+    {{#if animation}}
+    <h1>{{animation.title}}</h1>
+    <p>{{animation.preview}}</p>
+    <div class="info my-4" id="body">
+        {{{animation.body}}}
+    </div>
+    <iframe src="{{animation.ref}}" width="800" height="600" allowfullscreen frameborder="2"></iframe>
+    {{else}}
+    <div class="container mx-auto w-50">
+        <h1>404</h1>
+        <p>Ushbu ma'lumot topilmadi!!!</p>
+    </div>
+    {{/if}}
+</div>
