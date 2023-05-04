@@ -7,7 +7,9 @@
             <img src="{{user.profilePic}}" alt="avatar"
               class="rounded-circle img-fluid" style="width: 150px;">
             <h5 class="my-3">{{user.firstName}} {{user.lastName}}</h5>
+            {{#if itsme}}
             <a href="/auth/update" class="btn btn-primary"> Profilni tahrirlash </a>
+            {{/if}}
           </div>
         </div>
       </div>

@@ -14,7 +14,6 @@ const flash = require('connect-flash')
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use(flash())
-
 //sessiyalar
 app.use(session({
     secret: process.env.SESSION_SECRET,

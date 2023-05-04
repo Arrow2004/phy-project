@@ -97,8 +97,7 @@ const checkContest = async (req, res) => {
         score++;
       }
     }
-
-    if (
+    if ( !contest.participants || 
       contest.participants.every(function (user) {
         return user.user.username != req.session.user.username;
       })
@@ -109,7 +108,7 @@ const checkContest = async (req, res) => {
           $push: {
             participants: {
               user: req.params.uId,
-              score: score,
+              score
             },
           },
         },
@@ -121,7 +120,7 @@ const checkContest = async (req, res) => {
       title: `Test natijalari`,
       contest,
       score,
-      results: contest.participants.sort(function(a,b){return  b.score-a.score}),
+      results: contest.participants?contest.participants.sort(function(a,b){return  b.score-a.score}):[{...req.session.user,score}],
       regUser: req.session.user,
     });
   } catch (e) {
