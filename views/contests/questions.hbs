@@ -1,3 +1,4 @@
+<script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
 <div class="container">
     <h1>Tuzgan testingiz uchun savollarni kiritishni boshlang</h1>
     <form action="/contest/add/{{id}}" method="post">
@@ -5,35 +6,30 @@
             <div class="row"  id="question1">
             <div class="col">
                 <label for="question" class="form-label">Savol matni</label>
-                 <textarea class="form-control" id="question"
-                name="question" rows="6">Savol matni</textarea>
+                <textarea class="form-control"  id="textEditor" name="question">Savol matni</textarea>
             </div>
             <div class="col">
                 <label for="1-question" class="form-label">Savolning javoblari(To'g'ri javobni oldin kiriting)</label>
-                <input 
-                type="text" 
+                <textarea  
                 class="form-control mb-1" 
-                id="answers"
+                id="answers-1"
                 name="answers" 
-                placeholder="1-javob">
-                <input 
-                type="text" 
+                >1-javob</textarea>
+                <textarea  
                 class="form-control mb-1" 
-                id="answers"
+                id="answers-2"
                 name="answers" 
-                placeholder="2-javob">
-                <input 
-                type="text" 
+                >2-javob</textarea>
+                <textarea  
                 class="form-control mb-1" 
-                id="answers"
+                id="answers-3"
                 name="answers" 
-                placeholder="3-javob">
-                <input 
-                type="text" 
+                >3-javob</textarea>
+                <textarea  
                 class="form-control mb-1" 
-                id="answers"
+                id="answers-4"
                 name="answers" 
-                placeholder="4-javob">
+                >4-javob</textarea>
             </div>
             </div>
     </div>
@@ -44,6 +40,32 @@
     </form>
 </div>
 <script>
+    ClassicEditor
+            .create( document.querySelector( '#textEditor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+        ClassicEditor
+            .create( document.querySelector( '#answers-1' ),{
+            })
+            .catch( error => {
+                console.error( error );
+            } );
+            ClassicEditor
+            .create( document.querySelector( '#answers-2' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+            ClassicEditor
+            .create( document.querySelector( '#answers-3' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+            ClassicEditor
+            .create( document.querySelector( '#answers-4' ) )
+            .catch( error => {
+                console.error( error );
+            } );
     val=1;
     document
     function add(){
@@ -84,5 +106,11 @@
             </div>
             </div>
         `
+        ClassicEditor
+            .create( document.querySelector( '#answers-1' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+        
     }
 </script>

@@ -1,24 +1,24 @@
 <div class="container fluid mt-5">
-    <h1>Yangi contest qo'shish</h1>
+    <h1>Yangi Testlar qo'shish qo'shish</h1>
     <form action="/contest/add" method="post" class="d-grid gap-3" enctype="multipart/form-data">
         <div class="row">
             <div class="col">
-                <label for="firstInput" class="form-label">Contest nomi</label>
-                <input type="text" class="form-control" id="firstInput" name="title" placeholder="Contest nomi">
+                <label for="firstInput" class="form-label">Test nomi</label>
+                <input type="text" class="form-control" id="firstInput" name="title" placeholder="Test nomi">
             </div>
-            <div class="col">
+            {{!-- <div class="col">
                 <label for="secondInput" class="form-label">Contestning yana bir muallifi</label>
                 <input type="text" class="form-control" id="secondInput" name="another-author"
                     placeholder="Contestning yana bir muallifi">
-            </div>
+            </div> --}}
         </div>
         <div class="row">
             <div class="col">
-                <label for="formFile" class="form-label">Contest ko'rinishi uchun rasm</label>
+                <label for="formFile" class="form-label">Test ko'rinishi uchun rasm</label>
                 <input class="form-control" type="file" name="previewPicture" id="formFile">
             </div>
             <div class="col">
-                <label for="description" class="form-label">Contest ko'rinishi uchun rasm</label>
+                <label for="description" class="form-label">Contest ko'rinishi uchun ta'rif</label>
                 <textarea name="description" id="description" class="form-control">Test ta'rifini kiriting</textarea>
             </div>
         </div>

@@ -14,6 +14,9 @@
     .questions{
         background: #fff;
     }
+    .questions img{
+        max-width: 80%;
+    }
 </style>
 <form action="/contest/check/{{contest._id}}/{{regUser._id}}" method="post">
     <div class="container">
@@ -21,13 +24,13 @@
         <div class="questions">
             <ul style="list-style: numeric;">
                 {{#each contest.questions}}
-                <li class="question_list my-3"><b>{{question}}</b>
+                <li class="question_list my-3"><b>{{{question}}}</b>
                      <ul style="">
                     {{#each answers}}
                     <li class="answer">
-                        <input style="display: none;" type="radio" name="{{../question}}" id="{{../question}}-{{this}}"
+                        <input style="display: none;" type="radio" name="{{{../_id}}}" id="{{../_id}}_{{@index}}"
                             value="{{this}}">
-                        <label class="btn btn-light" for="{{../question}}-{{this}}">{{this}}</label>
+                        <label class="btn btn-light" for="{{../_id}}_{{@index}}">{{{this}}}</label>
                     </li>
                     {{/each}}
                 </ul>
@@ -39,3 +42,5 @@
         <button type="submit" class="btn btn-primary mx-auto">Jo'natish</button>
     </div>
 </form>
+<script>
+</script>

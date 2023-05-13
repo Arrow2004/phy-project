@@ -89,10 +89,12 @@ const checkContest = async (req, res) => {
       .lean();
     let score = 0;
     const questions = req.body;
+    console.log(req.body)
+    console.log(contest.questions)
     for (e of contest.questions) {
       if (
-        questions[e.question] != null &&
-        questions[e.question] === e.correctAnswer
+        questions[e._id] != null &&
+        questions[e._id] === e.correctAnswer
       ) {
         score++;
       }
